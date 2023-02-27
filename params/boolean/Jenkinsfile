@@ -1,0 +1,16 @@
+pipeline {
+    agent any
+
+    parameters {
+        // Why does it fails if defaultValue is set to false?
+        booleanParam(defaultValue: true, description: 'Enable servicce?', name: 'myBoolean')
+    }
+
+    stages {
+        stage('Demo') {
+            steps {
+                echo "booleanParam is set to: ${params.myBoolean}"
+            }
+        }
+    }
+}
